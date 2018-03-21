@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  todo: MyString
+todo1:
+  todo: todo1
   completed: false
 
-two:
-  todo: MyString
-  completed: false
+todo2:
+  todo: todo2
+  completed: true
