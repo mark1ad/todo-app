@@ -1,0 +1,8 @@
+<h1>Stuff To Get Done</h1>
+
+Tasks: <%= Todo.count %>
+<ul>
+  <% Todo.all.each do |todo| %>
+    <li><%= todo.todo %></li>
+  <% end %>
+</ul>
