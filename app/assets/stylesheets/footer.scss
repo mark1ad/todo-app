@@ -1,16 +1,17 @@
 footer {
   color: #31b0d5;
   background-color: #111;
-  font-size: 1rem;
-  padding: 20px;
+  font-size: 1.2rem;
+  padding: 15px;
 
   position: relative;
-  margin-top: -80px;
-  height: 40px;
+  margin-top: -55px;
+  height: 25px;
   clear: both;
 
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .footer-container {
@@ -23,11 +24,15 @@ footer {
     text-decoration: none;
   }
 
-  a:visited {
+  a:visited, a:link {
     color: #31b0d5;
   }
 
   a:hover {
     color: white;
   }
+}
+
+.icon-link {
+  margin-left: 9px;
 }
