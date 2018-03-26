@@ -12,11 +12,6 @@ body {
 }
 
 main {
-  padding-bottom: 80px; // height of footer
-}
-
-#home {
-  overflow: auto;
-  padding: 20px;
-  padding-bottom: 80px;
+  padding: 20px 20px 80px 20px;
+  min-height: 100%;
 }
