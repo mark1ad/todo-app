@@ -1,6 +1,6 @@
 <div class="todo">
   <%= form_for @todo do |f| %>
     <%= f.text_field :todo, placeholder: "New Todo" %>
-    <%= f.submit 'Add' %>
+    <%= f.submit 'Add', class: 'btn btn-info' %>
   <% end %>
 </div>
