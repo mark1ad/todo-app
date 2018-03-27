@@ -29,3 +29,13 @@
   border-radius: 5px;
   padding: 10px;
 }
+
+.new-todo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-field {
+  flex-grow: 1;
+}

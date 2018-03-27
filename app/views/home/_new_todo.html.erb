@@ -1,6 +1,10 @@
 <div class="todo">
-  <%= form_for @todo do |f| %>
-    <%= f.text_field :todo, placeholder: "New Todo" %>
-    <%= f.submit 'Add', class: 'btn btn-info' %>
+  <%= form_for @todo, :html => { :class => 'form-inline' } do |f| %>
+    <div class="new-todo">
+      <%= f.text_field :todo,
+        placeholder: "New Todo",
+        class: 'form-control todo-field' %>
+      <%= f.submit 'Add', class: 'btn btn-info col' %>
+    </div>
   <% end %>
 </div>
