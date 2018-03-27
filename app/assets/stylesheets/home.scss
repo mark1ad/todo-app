@@ -4,7 +4,15 @@
 
 #home {
   overflow: auto;
-  min-height: 80%;
+  // min-height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home-container {
+  max-width: 600px;
   width: 100%;
 }
 
@@ -20,4 +28,14 @@
   border: 1px solid #dddddd;
   border-radius: 5px;
   padding: 10px;
+}
+
+.new-todo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-field {
+  flex-grow: 1;
 }
