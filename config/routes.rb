@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  resources :todos
+  resources :todos, only: [:create, :destroy, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

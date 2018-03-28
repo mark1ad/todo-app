@@ -1,24 +1,9 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy]
-
-  # GET /todos
-  # GET /todos.json
-  def index
-    @todos = Todo.all
-  end
-
-  # GET /todos/1
-  # GET /todos/1.json
-  def show
-  end
+  before_action :set_todo, only: [:update, :destroy]
 
   # GET /todos/new
   def new
     @todo = Todo.new
-  end
-
-  # GET /todos/1/edit
-  def edit
   end
 
   # POST /todos
