@@ -1,8 +1,12 @@
-<div class="todo">
+<div class="todo-container todo">
   <% form_id = "to_#{todo.id}" %>
   <%= form_for todo, :html => { :id => form_id } do |f| %>
   <% @stuff = "stuff" %>
     <%= f.check_box :completed, :onclick => "$('##{form_id}').submit()" %>
     <%= todo.todo %>
   <% end %>
+  <%= link_to '', todo_path(todo),
+    method: :delete,
+    class: 'fa fa-trash',
+    data: { confirm: 'Are you sure you want to delete this todo?'} %>
 </div>

@@ -24,10 +24,16 @@
   padding: 10px;
 }
 
-.todo {
+.todo-container {
   border: 1px solid #dddddd;
   border-radius: 5px;
   padding: 10px;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .new-todo {
