@@ -1,7 +1,6 @@
 <div class="todo-container todo" id="todo_<%= todo.id %>">
   <% form_id = "todo_form_#{todo.id}" %>
   <%= form_for todo, :html => { :id => form_id } do |f| %>
-  <% @stuff = "stuff" %>
     <%= f.check_box :completed, :onclick => "$('##{form_id}').submit()" %>
     <span class="todo-name">
       <%= todo.todo %>
