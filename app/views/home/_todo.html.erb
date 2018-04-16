@@ -1,9 +1,11 @@
-<div class="todo-container todo">
-  <% form_id = "to_#{todo.id}" %>
+<div class="todo-container todo" id="todo_<%= todo.id %>">
+  <% form_id = "todo_form_#{todo.id}" %>
   <%= form_for todo, :html => { :id => form_id } do |f| %>
   <% @stuff = "stuff" %>
     <%= f.check_box :completed, :onclick => "$('##{form_id}').submit()" %>
-    <%= todo.todo %>
+    <span class="todo-name">
+      <%= todo.todo %>
+    </span>
   <% end %>
   <%= link_to '', todo_path(todo),
     method: :delete,
