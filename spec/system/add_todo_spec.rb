@@ -11,14 +11,12 @@ RSpec.describe "adding a todo", type: :system do
   end
 
   it "does not allow a user to create a todo without text" do
-    pending "not implmeneted yet"
-    visit "/"
-    # TODO: Finds the new todo text field by looking for the placeholder value.
-    # Probably not the best way to find it
-    fill_in "New Todo", with: ""
+    visit root_path
+    fill_in "todo[todo]", with: ""
     click_on("Add")
-    visit "/"
-    # expect(page).not_to have_content("New Test Todo")
-    expect(page).not_to have_selector("#todo_#{@todo.id} .todo-name", text: "")
+    visit root_path
+    # There should be no todos on page therefore no object with a
+    # class="todo-name"
+    expect(page).not_to have_selector(".todo-name")
   end
 end
