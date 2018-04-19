@@ -4,6 +4,11 @@ class CreatesTodo
   def initialize(name: "", due_date: Date.today)
     @name = name
     @due_date = due_date
+    @success = false
+  end
+
+  def success?
+    @success
   end
 
   def build
@@ -12,6 +17,6 @@ class CreatesTodo
 
   def create
     build
-    todo.save
+    @success = todo.save
   end
 end

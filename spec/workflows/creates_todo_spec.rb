@@ -23,6 +23,15 @@ RSpec.describe CreatesTodo do
     creator = CreatesTodo.new(name: "A New Todo")
     creator.create
     saved_todo =  Todo.find_by({name: "A New Todo"})
+    expect(creator).to be_a_success
     expect(saved_todo.due_date).to eq(Date.today)
+  end
+
+  describe "failure cases" do
+    it "fails when trying to save a todo with no name" do
+      creator = CreatesTodo.new
+      creator.create
+      expect(creator).not_to be_a_success
+    end
   end
 end

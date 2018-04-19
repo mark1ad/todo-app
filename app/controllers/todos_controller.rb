@@ -12,7 +12,8 @@ class TodosController < ApplicationController
     @workflow = CreatesTodo.new(
       name: params[:todo][:name]
     )
-    if @workflow.create
+    @workflow.create
+    if @workflow.success?
       flash[:notice] = "Todo created."
     else
       flash[:error] = "Error creating todo."
