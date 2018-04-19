@@ -4,16 +4,16 @@ RSpec.describe "End-to-end tests", type: :system do
   describe "adding a todo" do
     it "allows a user to create a todo" do
       visit root_path
-      fill_in "todo[todo]", with: "Todo 1"
+      fill_in "todo[name]", with: "Todo 1"
       click_on("Add")
       visit root_path
-      @todo = Todo.find_by(todo: "Todo 1")
+      @todo = Todo.find_by(name: "Todo 1")
       expect(page).to have_selector("#todo_#{@todo.id} .todo-name", text: "Todo 1")
     end
 
-    it "does not allow a user to create a todo without text" do
+    it "does not allow a user to create a todo without name" do
       visit root_path
-      fill_in "todo[todo]", with: ""
+      fill_in "todo[name]", with: ""
       click_on("Add")
       visit root_path
       # There should be no todos on page therefore no object with a
@@ -26,12 +26,12 @@ RSpec.describe "End-to-end tests", type: :system do
     pending "not implemented yet"
     # Create the todo
     visit root_path
-    fill_in "todo[todo]", with: "Todo 1"
+    fill_in "todo[name]", with: "Todo 1"
     click_on("Add")
     visit root_path
 
     # Click the delete link
-    @todo = Todo.find_by(todo: "Todo 1")
+    @todo = Todo.find_by(name: "Todo 1")
     # TODO: Getting
     # Capybara::NotSupportedByDriverError:
     #   Capybara::Driver::Base#accept_modal
@@ -44,13 +44,13 @@ RSpec.describe "End-to-end tests", type: :system do
   xit "allows a user to complete a todo" do
     # Create the todo
     visit root_path
-    fill_in "todo[todo]", with: "Todo 1"
+    fill_in "todo[name]", with: "Todo 1"
     click_on("Add")
     visit root_path
 
     # complete todo
     # TODO: Can't get form to submit
-    @todo = Todo.find_by(todo: "Todo 1")
+    @todo = Todo.find_by(name: "Todo 1")
     @completed_checkbox = find("#todo_completed_#{@todo.id}")
     check("todo_completed_#{@todo.id}")
     execute_script("$('form#todo_form_#{@todo.id}').submit()")
@@ -61,10 +61,10 @@ RSpec.describe "End-to-end tests", type: :system do
   it "todo is not complete" do
     # Create the todo
     visit root_path
-    fill_in "todo[todo]", with: "Todo 1"
+    fill_in "todo[name]", with: "Todo 1"
     click_on("Add")
     visit root_path
-    @todo = Todo.find_by(todo: "Todo 1")
+    @todo = Todo.find_by(name: "Todo 1")
     expect(page.find("#todo_completed_#{@todo.id}")).not_to be_checked
   end
 end
