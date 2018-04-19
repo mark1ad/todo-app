@@ -9,8 +9,10 @@ class TodosController < ApplicationController
   # POST /todos
   # POST /todos.json
   def create
-    @todo = Todo.new(todo_params)
-    if @todo.save
+    @workflow = CreatesTodo.new(
+      name: params[:todo][:name]
+    )
+    if @workflow.create
       flash[:notice] = "Todo created."
     else
       flash[:error] = "Error creating todo."
