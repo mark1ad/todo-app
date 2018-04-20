@@ -30,6 +30,18 @@ RSpec.describe "End-to-end tests", type: :system do
       expect(page).to have_selector("#todo_#{@todo.id} .todo-due-date",
         text: Date.today.strftime("%m/%d/%y"))
     end
+
+    it "allows a user to create a todo with a due date" do
+      visit root_path
+      fill_in "todo[name]", with: "A New Todo"
+      @due_date = Date.today + 1.day
+      fill_in "todo[due_date]", with: @due_date
+      click_on("Add")
+      visit root_path
+      @todo = Todo.find_by(name: "A New Todo")
+      expect(page).to have_selector("#todo_#{@todo.id} .todo-due-date",
+        text: @due_date.strftime("%m/%d/%y"))
+    end
   end
 
   xit "allows a user to delete a todo" do

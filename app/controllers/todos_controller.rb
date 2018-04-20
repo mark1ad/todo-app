@@ -10,7 +10,8 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @workflow = CreatesTodo.new(
-      name: params[:todo][:name]
+      name: params[:todo][:name],
+      due_date: params[:todo][:due_date]
     )
     @workflow.create
     if @workflow.success?
@@ -47,6 +48,6 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:name, :completed)
+      params.require(:todo).permit(:name, :completed, :due_date)
     end
 end

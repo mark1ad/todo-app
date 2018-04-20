@@ -1,6 +1,9 @@
+<% @todo.due_date = Date.today %>
 <div class="todo-container">
   <%= form_for @todo, :html => { :class => 'form-inline' } do |f| %>
     <div class="new-todo">
+      <%= f.date_field :due_date,
+        class: 'form-control' %>
       <%= f.text_field :name,
         placeholder: "New Todo",
         class: 'form-control todo-field' %>
