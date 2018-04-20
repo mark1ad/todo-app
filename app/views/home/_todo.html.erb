@@ -3,9 +3,8 @@
   <% form_id = "todo_form_#{todo.id}" %>
   <%= form_for todo, :html => { :id => form_id } do |f| %>
     <%= f.check_box :completed, :onclick => "$('##{form_id}').submit()", :id => "todo_completed_#{todo.id}" %>
-    <span class="todo-name">
-      <%= todo.name %>
-    </span>
+    <span class="todo-due-date"><%= todo.due_date.strftime("%m/%d/%y") %></span>
+    <span class="todo-name"> <%= todo.name %> </span>
   <% end %>
   <%= link_to '', todo_path(todo),
     method: :delete,

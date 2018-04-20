@@ -9,8 +9,12 @@ class TodosController < ApplicationController
   # POST /todos
   # POST /todos.json
   def create
-    @todo = Todo.new(todo_params)
-    if @todo.save
+    @workflow = CreatesTodo.new(
+      name: params[:todo][:name],
+      due_date: params[:todo][:due_date]
+    )
+    @workflow.create
+    if @workflow.success?
       flash[:notice] = "Todo created."
     else
       flash[:error] = "Error creating todo."
@@ -44,6 +48,6 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:name, :completed)
+      params.require(:todo).permit(:name, :completed, :due_date)
     end
 end
