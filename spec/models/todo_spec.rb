@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Todo, type: :model do
-  let(:todo) { Todo.new }
+  let(:todoWithoutName) { FactoryBot.build_stubbed(:todo, name: "") }
+  let(:todo) { FactoryBot.build_stubbed(:todo, name: "Thing to do") }
 
   it "is not valid without a name" do
-    todo.valid?
-    expect(todo.errors[:name]).to include("can't be blank")
+    todoWithoutName.valid?
+    expect(todoWithoutName.errors[:name]).to include("can't be blank")
   end
 
   it "is valid with a name" do
-    todo.name = "stuff"
     todo.valid?
     expect(todo.errors[:name].count).to equal(0)
   end
