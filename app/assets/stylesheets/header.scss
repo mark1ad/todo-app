@@ -4,3 +4,27 @@ header {
   font-size: 2.5rem;
   padding: 20px;
 }
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+// override for the 'Home' navigation link
+.navbar-brand {
+  font-size: inherit;
+}
+
+.navbar-toggler.nav-link {
+  cursor: pointer;
+  color: #31b0d5;
+}
+
+.navbar a {
+  // color: #ffffff;
+
+  &:hover {
+    color: #dddddd;
+    background-color: #111;
+  }
+}
