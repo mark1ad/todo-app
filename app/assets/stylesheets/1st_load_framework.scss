@@ -13,6 +13,7 @@ body {
 }
 
 main {
+  @extend .container;
   padding: 20px 20px 80px 20px;
   min-height: 100%;
 }
@@ -45,6 +46,10 @@ main {
 .authform .button {
   @extend .btn;
   @extend .btn-primary;
+}
+
+.authform form.cancel-account {
+  padding-top: 30px;
 }
 
 #error_explanation:not(:empty) {
