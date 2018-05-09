@@ -6,25 +6,18 @@ header {
 }
 
 .navbar {
-  display: flex;
-  flex-direction: column;
-}
-
-// override for the 'Home' navigation link
-.navbar-brand {
-  font-size: inherit;
-}
-
-.navbar-toggler.nav-link {
-  cursor: pointer;
-  color: #31b0d5;
+  margin-bottom: 0;
 }
 
 .navbar a {
-  // color: #ffffff;
+  font-size: inherit;
+}
 
-  &:hover {
-    color: #dddddd;
-    background-color: #111;
-  }
+.nav li a:hover {
+  color: #dddddd;
+  background-color: #111;
+}
+
+.icon-bar {
+  background-color: #fff;
 }
