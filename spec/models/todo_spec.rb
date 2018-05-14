@@ -1,6 +1,17 @@
 require 'rails_helper'
+include Warden::Test::Helpers
+Warden.test_mode!
 
 RSpec.describe Todo, type: :model do
+  before do
+    @user = FactoryBot.create(:user)
+    login_as(@user, scope: :user)
+  end
+
+  after(:each) do
+    Warden.test_reset!
+  end
+
   let(:todoWithoutName) { FactoryBot.build_stubbed(:todo, name: "") }
   let(:todo) { FactoryBot.build_stubbed(:todo, name: "Thing to do") }
 
