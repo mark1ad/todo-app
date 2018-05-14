@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-todo = Todo.new({name: "Todo 1", completed: false})
-todo.save
-
-todo = Todo.new({name: "Todo 2", completed: true})
-todo.save
+# todo = Todo.new({name: "Todo 1", completed: false})
+# todo.save
+#
+# todo = Todo.new({name: "Todo 2", completed: true})
+# todo.save

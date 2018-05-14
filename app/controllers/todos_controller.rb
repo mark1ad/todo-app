@@ -11,7 +11,8 @@ class TodosController < ApplicationController
   def create
     @workflow = CreatesTodo.new(
       name: params[:todo][:name],
-      due_date: params[:todo][:due_date]
+      due_date: params[:todo][:due_date],
+      user: current_user
     )
     @workflow.create
     if @workflow.success?

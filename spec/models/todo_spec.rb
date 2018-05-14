@@ -12,8 +12,19 @@ RSpec.describe Todo, type: :model do
     Warden.test_reset!
   end
 
-  let(:todoWithoutName) { FactoryBot.build_stubbed(:todo, name: "") }
-  let(:todo) { FactoryBot.build_stubbed(:todo, name: "Thing to do") }
+  let(:todoWithoutName) { FactoryBot.build_stubbed(:todo, name: "", user: @user) }
+  let(:todo) { FactoryBot.build_stubbed(:todo, name: "Thing to do", user: @user) }
+  let(:todoWithoutUser) { FactoryBot.build_stubbed(:todo, name: "Thing to do") }
+
+  it "is not valid without user" do
+    todoWithoutUser.valid?
+    expect(todoWithoutUser.errors[:user]).to include("can't be blank")
+  end
+
+  it "is valid with user" do
+    todo.valid?
+    expect(todo.errors[:user].count).to equal(0)
+  end
 
   it "is not valid without a name" do
     todoWithoutName.valid?
