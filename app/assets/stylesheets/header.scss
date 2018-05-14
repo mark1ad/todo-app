@@ -4,3 +4,20 @@ header {
   font-size: 2.5rem;
   padding: 20px;
 }
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar a {
+  font-size: inherit;
+}
+
+.nav li a:hover {
+  color: #dddddd;
+  background-color: #111;
+}
+
+.icon-bar {
+  background-color: #fff;
+}

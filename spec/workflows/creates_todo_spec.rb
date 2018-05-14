@@ -1,6 +1,12 @@
 require "rails_helper"
+include Warden::Test::Helpers
+Warden.test_mode!
 
 RSpec.describe CreatesTodo do
+  after(:each) do
+    Warden.test_reset!
+  end
+
   it "Creates a todo with a name" do
     creator = CreatesTodo.new(name: "A New Todo")
     creator.build
@@ -20,7 +26,10 @@ RSpec.describe CreatesTodo do
   end
 
   it "default due date is set to today when todo saved" do
-    creator = CreatesTodo.new(name: "A New Todo")
+    @user = FactoryBot.create(:user)
+    login_as(@user, scope: :user)
+
+    creator = CreatesTodo.new(name: "A New Todo", user: @user)
     creator.create
     saved_todo =  Todo.find_by({name: "A New Todo"})
     expect(creator).to be_a_success

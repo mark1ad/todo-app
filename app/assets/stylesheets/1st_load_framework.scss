@@ -13,6 +13,55 @@ body {
 }
 
 main {
+  @extend .container;
   padding: 20px 20px 80px 20px;
   min-height: 100%;
+}
+
+.authform {
+  padding-top: 30px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.authform form {
+  // @extend .card;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+
+  @extend .col-md-9;
+  padding-bottom: 40px;
+  // @extend .bg-faded;
+  background-color: #f7f7f7;
+  @extend .small;
+}
+
+.authform .right {
+  float: right !important;
+}
+
+.authform .button {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+.authform form.cancel-account {
+  padding-top: 30px;
+}
+
+#error_explanation:not(:empty) {
+  @extend .alert;
+  @extend .alert-danger;
+}
+#error_explanation h2 {
+  font-size: 16px;
+}
+
+.button-xs {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-sm;
 }

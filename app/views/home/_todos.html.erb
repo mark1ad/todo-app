@@ -1,5 +1,5 @@
 <div class="todos-container">
-  <% Todo.all.order(:name).each do |todo| %>
+  <% current_user.todos.order(:name).each do |todo| %>
     <%= render "todo", todo: todo %>
   <% end %>
 </div>

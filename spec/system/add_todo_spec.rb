@@ -1,6 +1,17 @@
 require "rails_helper"
+include Warden::Test::Helpers
+Warden.test_mode!
 
 RSpec.describe "End-to-end tests", type: :system do
+  before do
+    user = FactoryBot.create(:user)
+    login_as(user, scope: :user)
+  end
+
+  after(:each) do
+    Warden.test_reset!
+  end
+
   describe "adding a todo" do
     it "allows a user to create a todo" do
       visit root_path
